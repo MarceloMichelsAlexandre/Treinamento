@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
-const Schema = mongose.Schema;
+const Schema = mongoose.Schema;
 
-const produtoSchema = newSchema(
+const produtoSchema = new Schema(
   {
     descricao: String,
     valor: Number,
     referencia: String,
-    cor: [
+    cores: [
       {
         type: Schema.Types.ObjectId,
         ref: "cor"

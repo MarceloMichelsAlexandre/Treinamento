@@ -1,13 +1,12 @@
 const mongoose = require("mongoose");
-const Schema = mongose.Schema;
+const Schema = mongoose.Schema;
 
-const pessoaSchema = newSchema(
+const pessoaSchema = new Schema(
   {
     documento: String,
     nome: String,
     telefone: String,
     email: String,
-    senha: String,
     produtos: [
       {
         type: Schema.Types.ObjectId,

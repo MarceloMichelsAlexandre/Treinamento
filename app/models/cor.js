@@ -1,13 +1,9 @@
 const mongoose = require("mongoose");
-const Schema = mongose.Schema;
+const Schema = mongoose.Schema;
 
-const corSchema = newSchema(
+const corSchema = new Schema(
   {
-    documento: String,
-    nome: String,
-    telefone: String,
-    email: String,
-    senha: String
+    descricao: String
   },
   { timestamps: true }
 );

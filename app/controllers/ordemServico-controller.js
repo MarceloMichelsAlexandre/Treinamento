@@ -42,4 +42,4 @@ class OrdemServicoController {
     }
 }    
 
-module.exports = new.OrdemServicoController();
+module.exports = new OrdemServicoController();

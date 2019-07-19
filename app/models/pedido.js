@@ -1,21 +1,19 @@
 const mongoose = require("mongoose");
-const Schema = mongose.Schema;
+const Schema = mongoose.Schema;
 
-const pedidoSchema = newSchema(
+const pedidoSchema = new Schema(
   {
+    dataEntrada: Date,
     numero: Number,
-    vendedor: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "pessoa"
-      }
-    ],
-    cliente: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "pessoa"
-      }
-    ],
+    valorTotal: Number,
+    vendedor: {
+      type: Schema.Types.ObjectId,
+      ref: "pessoa"
+    },
+    cliente: {
+      type: Schema.Types.ObjectId,
+      ref: "pessoa"
+    },
     Itens: [
       {
         quantidade: Number,

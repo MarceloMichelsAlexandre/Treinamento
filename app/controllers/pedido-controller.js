@@ -1,14 +1,14 @@
-const cor = require("../models/cor");
+const pedido = require("../models/pedido");
 
-class CorController {
+class PedidoController {
     
     async findAll(req,res) {
-        const registros = await cor.find();
+        const registros = await pedido.find();
         return res.status(200).json(registros);
     }
 
     async findById(req, res) {
-        const registro = await cor.findById(req.params.id);
+        const registro = await pedido.findById(req.params.id);
         if (registro)  {
             return res.status(200).json(registro);
         } else {
@@ -17,12 +17,12 @@ class CorController {
     }
 
     async store(req, res) {
-        const registro = await cor.create(req.body);
+        const registro = await pedido.create(req.body);
         return res.status(201).json(registro);
     }
 
     async update(req, res) {
-        const registro = await cor.findByIdAndUpdate(req.params.id, req.body, {
+        const registro = await pedido.findByIdAndUpdate(req.params.id, req.body, {
             new: true
         })
         if (registro) {
@@ -33,7 +33,7 @@ class CorController {
     }
 
     async delete(req, res) {
-        const registro = await cor.findByIdAndDelete(req.params.id);
+        const registro = await pedido.findByIdAndDelete(req.params.id);
         if (registro) {
             return res.status(200).send("Deleted");
         } else {
@@ -42,4 +42,4 @@ class CorController {
     }
 }    
 
-module.exports = new CorController();
+module.exports = new PedidoController();
