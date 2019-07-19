@@ -6,6 +6,8 @@ const CorController = require("../app/controllers/cor-controller");
 const PedidoController = require("../app/controllers/pedido-controller");
 const ProdutoController = require("../app/controllers/produto-controller");
 const OrdemServicoController = require("../app/controllers/ordemServico-controller");
+const UsuarioController = require("../app/controllers/usuario-controller");
+const LoginController = require("../app/controllers/login-controller");
 
 routes.get("/pessoas", PessoaController.findAll);
 routes.get("/pessoas/:id", PessoaController.findById);
@@ -36,5 +38,13 @@ routes.get("/produtos/:id", ProdutoController.findById);
 routes.post("/produtos", ProdutoController.store);
 routes.put("/produtos/:id", ProdutoController.update);
 routes.delete("/produtos/:id", ProdutoController.delete);
+
+routes.get("/usuarios", UsuarioController.findAll);
+routes.post("/usuarios", UsuarioController.store);
+routes.post("/usuarios/validar", UsuarioController.usuarioValido);
+routes.put("/usuarios/:id", UsuarioController.update);
+routes.delete("/usuarios/:id", UsuarioController.delete);
+
+routes.post("/login", LoginController.fazerLogin);
 
 module.exports = routes;
