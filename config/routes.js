@@ -1,19 +1,19 @@
 const express = require("express");
 const routes = express.Router();
 
-const PessoaController = require("../app/controllers/pessoa-controller");
+const ClienteController = require("../app/controllers/cliente-controller");
 const CorController = require("../app/controllers/cor-controller");
 const PedidoController = require("../app/controllers/pedido-controller");
-const ProdutoController = require("../app/controllers/produto-controller");
+const ItemController = require("../app/controllers/item-controller");
 const OrdemServicoController = require("../app/controllers/ordemServico-controller");
 const UsuarioController = require("../app/controllers/usuario-controller");
 const LoginController = require("../app/controllers/login-controller");
 
-routes.get("/pessoas", PessoaController.findAll);
-routes.get("/pessoas/:id", PessoaController.findById);
-routes.post("/pessoas", PessoaController.store);
-routes.put("/pessoas/:id", PessoaController.update);
-routes.delete("/pessoas/:id", PessoaController.delete);
+routes.get("/clientes", ClienteController.findAll);
+routes.get("/clientes/:id", ClienteController.findById);
+routes.post("/clientes", ClienteController.store);
+routes.put("/clientes/:id", ClienteController.update);
+routes.delete("/clientes/:id", ClienteController.delete);
 
 routes.get("/cores", CorController.findAll);
 routes.get("/cores/:id", CorController.findById);
@@ -33,11 +33,11 @@ routes.post("/ordensServicos", OrdemServicoController.store);
 routes.put("/ordensServicos/:id", OrdemServicoController.update);
 routes.delete("/ordensServicos/:id", OrdemServicoController.delete);
 
-routes.get("/produtos", ProdutoController.findAll);
-routes.get("/produtos/:id", ProdutoController.findById);
-routes.post("/produtos", ProdutoController.store);
-routes.put("/produtos/:id", ProdutoController.update);
-routes.delete("/produtos/:id", ProdutoController.delete);
+routes.get("/itens", ItemController.findAll);
+routes.get("/itens/:id", ItemController.findById);
+routes.post("/itens", ItemController.store);
+routes.put("/itens/:id", ItemController.update);
+routes.delete("/itens/:id", ItemController.delete);
 
 routes.get("/usuarios", UsuarioController.findAll);
 routes.post("/usuarios", UsuarioController.store);

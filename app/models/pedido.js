@@ -8,18 +8,18 @@ const pedidoSchema = new Schema(
     valorTotal: Number,
     vendedor: {
       type: Schema.Types.ObjectId,
-      ref: "pessoa"
+      ref: "cliente"
     },
     cliente: {
       type: Schema.Types.ObjectId,
-      ref: "pessoa"
+      ref: "cliente"
     },
     Itens: [
       {
         quantidade: Number,
-        produto: {
+        item: {
           type: Schema.Types.ObjectId,
-          ref: "produto"
+          ref: "item"
         }
       }
     ]

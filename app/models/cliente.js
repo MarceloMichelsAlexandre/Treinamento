@@ -1,22 +1,22 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const pessoaSchema = new Schema(
+const clienteSchema = new Schema(
   {
     documento: String,
     nome: String,
     telefone: String,
     email: String,
-    produtos: [
+    itens: [
       {
         type: Schema.Types.ObjectId,
-        ref: "produto"
+        ref: "item"
       }
     ]
   },
   { timestamps: true }
 );
 
-const pessoa = mongoose.model("pessoas", pessoaSchema);
+const cliente = mongoose.model("clientes", clienteSchema);
 
-module.exports = pessoa;
+module.exports = cliente;

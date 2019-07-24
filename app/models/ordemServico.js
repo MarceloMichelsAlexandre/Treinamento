@@ -10,10 +10,10 @@ const ordemServicoSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "cliente"
     },
-    produtos: [
+    itens: [
       {
         type: Schema.Types.ObjectId,
-        ref: "produto"
+        ref: "item"
       }
     ]
   },
