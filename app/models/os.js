@@ -1,14 +1,17 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const ordemServicoSchema = new Schema(
+const osSchema = new Schema(
   {
     dataEntrada: Date,
     datSaida: Date,
     valorTotal: Number,
     cliente: {
-      type: Schema.Types.ObjectId,
-      ref: "cliente"
+      id: {
+        type: Schema.Types.ObjectId,
+        ref: "cliente"
+      },
+      nome: String
     },
     itens: [
       {
@@ -20,6 +23,6 @@ const ordemServicoSchema = new Schema(
   { timestamps: true }
 );
 
-const ordemServico = mongoose.model("ordensServicos", ordemServicoSchema);
+const os = mongoose.model("os", osSchema);
 
-module.exports = ordemServico;
+module.exports = os;

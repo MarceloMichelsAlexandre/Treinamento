@@ -1,13 +1,14 @@
-const cor = require("../models/cor");
+const os = require("../models/os");
+const cliente = require("../models/cliente");
 
-class CorController {
+class OSController {
   async findAll(req, res) {
-    const registros = await cor.find();
+    const registros = await os.find();
     return res.status(200).json(registros);
   }
 
   async findById(req, res) {
-    const registro = await cor.findById(req.params.id);
+    const registro = await os.findById(req.params.id);
     if (registro) {
       return res.status(200).json(registro);
     } else {
@@ -15,19 +16,19 @@ class CorController {
     }
   }
 
-  async findByNome(req, res) {
+  async findByCliente(req, res) {
     var regex = new RegExp("" + req.query.pesquisa + ".*$", "i");
-    const registros = await cor.find({ nome: regex });
+    const registros = await os.find({ "cliente.nome": regex });
     return res.json(registros);
   }
 
   async store(req, res) {
-    const registro = await cor.create(req.body);
+    const registro = await os.create(req.body);
     return res.status(201).json(registro);
   }
 
   async update(req, res) {
-    const registro = await cor.findByIdAndUpdate(req.params.id, req.body, {
+    const registro = await os.findByIdAndUpdate(req.params.id, req.body, {
       new: true
     });
     if (registro) {
@@ -38,7 +39,7 @@ class CorController {
   }
 
   async delete(req, res) {
-    const registro = await cor.findByIdAndDelete(req.params.id);
+    const registro = await os.findByIdAndDelete(req.params.id);
     if (registro) {
       return res.status(200).send("Deleted");
     } else {
@@ -47,4 +48,4 @@ class CorController {
   }
 }
 
-module.exports = new CorController();
+module.exports = new OSController();

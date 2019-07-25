@@ -5,12 +5,13 @@ const ClienteController = require("../app/controllers/cliente-controller");
 const CorController = require("../app/controllers/cor-controller");
 const PedidoController = require("../app/controllers/pedido-controller");
 const ItemController = require("../app/controllers/item-controller");
-const OrdemServicoController = require("../app/controllers/ordemServico-controller");
+const OSController = require("../app/controllers/os-controller");
 const UsuarioController = require("../app/controllers/usuario-controller");
 const LoginController = require("../app/controllers/login-controller");
 
 routes.get("/clientes", ClienteController.findAll);
 routes.get("/clientes/:id", ClienteController.findById);
+routes.get("/clientes-pesquisa/", ClienteController.findByNome);
 routes.post("/clientes", ClienteController.store);
 routes.put("/clientes/:id", ClienteController.update);
 routes.delete("/clientes/:id", ClienteController.delete);
@@ -23,18 +24,22 @@ routes.delete("/cores/:id", CorController.delete);
 
 routes.get("/pedidos", PedidoController.findAll);
 routes.get("/pedidos/:id", PedidoController.findById);
+routes.get("/pedido-pesquisa", PedidoController.findByCliente);
+routes.get("/pedido-vendedor", PedidoController.findByVendedor);
 routes.post("/pedidos", PedidoController.store);
 routes.put("/pedidos/:id", PedidoController.update);
 routes.delete("/pedidos/:id", PedidoController.delete);
 
-routes.get("/ordensServicos", OrdemServicoController.findAll);
-routes.get("/ordensServicos/:id", OrdemServicoController.findById);
-routes.post("/ordensServicos", OrdemServicoController.store);
-routes.put("/ordensServicos/:id", OrdemServicoController.update);
-routes.delete("/ordensServicos/:id", OrdemServicoController.delete);
+routes.get("/os", OSController.findAll);
+routes.get("/os/:id", OSController.findById);
+routes.get("/os-pesquisa", OSController.findByCliente);
+routes.post("/os", OSController.store);
+routes.put("/os/:id", OSController.update);
+routes.delete("/os/:id", OSController.delete);
 
 routes.get("/itens", ItemController.findAll);
 routes.get("/itens/:id", ItemController.findById);
+routes.get("/itens-pesquisa", ItemController.findByDescricao);
 routes.post("/itens", ItemController.store);
 routes.put("/itens/:id", ItemController.update);
 routes.delete("/itens/:id", ItemController.delete);
